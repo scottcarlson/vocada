@@ -20,7 +20,9 @@ var fs = require('fs'),
 			// Private attribute that holds the single instance
 			var controllerInstance; 
 
-			var constructor = require('../controllers/' + name);
+			function constructor() {
+				return require('../controllers/' + name);
+			}
 
 			return {
 				getInstance: function() {

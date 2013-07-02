@@ -116,7 +116,6 @@ var LoadServer = (function() {
 				// Remove .js from controller file names 
 				name = name.slice(0, -3);
 
-				//Controller = instatiate('controller', name);
 				Controller = Controllers[name.capitalize() + 'Controller'].getInstance();
 
 				for(var route in Controller) {
