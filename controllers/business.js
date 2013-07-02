@@ -1,7 +1,9 @@
 /**
  * Business Controller
  */
- 
+
+var Model = Model || Object;
+
 var BusinessController = {
 
  	create: {

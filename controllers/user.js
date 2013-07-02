@@ -3,7 +3,8 @@
  */
 
 // controller dependencies
-var passport = require('passport');
+var passport = require('passport'),
+		Model = Model || Object;
 
 var UserController = {
 	login: {

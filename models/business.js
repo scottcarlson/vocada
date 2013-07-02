@@ -2,61 +2,41 @@
  * Business Model
  */
 
-// Module dependencies
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+var BusinessModel = {
 
-var BusinessModel = (function() {
-
-	// Private attribute that holds the single instance
-	var modelInstance;
-
-	function constructor() { 
-		var schema = {
+  Architecture: {
+    schema: {
 			id: { type: Number, default: -1},
 			name: { type: String},
 			meta: {
 				created: { type: Date, default: Date.now},
 				createdTimestamp: { type: Number, default: Date.now() },
 			}   
-		};
-		var options = {autoIndex: true};
-		var associations = {
-			belongsTo : ['user'],
-			notNested: {}
-		};
+		},
+    options: {
+      // autoIndex should be false in production (http://mongoosejs.com/docs/guide.html#indexes)
+      autoIndex: true
+    },
+    associations: {
+      belongsTo : ['user'],
+      notNested: {}
+    }  
+  },
 
-		return {
-			getSchema: function() {
-				return schema;
-			},
-			updateSchema: function(name, update) {
-				schema[name] = update;
-			},
-			getOptions: function() {
-				return options;
-			},
-			getAssociations: function() {
-				return associations;
-			},
-			create: function() {
-				// create schema with mongoose schema
-				var BusinessSchema = new Schema(schema, options);
+  Middleware: {
+    // http://mongoosejs.com/docs/middleware.html
+    pre: {},
+    post: {}
+  },
 
-				return mongoose.model('Business', BusinessSchema);    
-			}
+  Custom: {
+    // http://mongoosejs.com/docs/guide.html
+    methods: {},
 
-		} // end return object
-	} // end constructor
+    statics: {},
 
-	return {
-		getInstance: function() {
-			if(!modelInstance)
-				modelInstance = constructor();
-			return modelInstance;
-		}
-	}
-
-})();
+    virtuals: {}
+  }
+};
 
 module.exports = BusinessModel;

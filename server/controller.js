@@ -4,17 +4,16 @@
 
 // Module dependencies
 var fs = require('fs'),
-		Model = Model || Object,
 		Controller = Object;
 
 	// read through the controllers directory
 	fs.readdirSync(__dirname + '/../controllers').forEach(function(name){
 
-		// Remove .js from controller file names 
-		name = name.slice(0, -3);
-		objectName = name.capitalize() + 'Controller';
+		// remove .js from controller file names 
+		var name = name.slice(0, -3),
+				objectName = name.capitalize() + 'Controller';
 
-		// Export Controller as an object literal
+		// create controller singleton
 		Controller[objectName] = (function() {
 
 			// Private attribute that holds the single instance

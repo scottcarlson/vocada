@@ -31,6 +31,7 @@ var LoadServer = (function() {
 		function models() {
 
 			var models = [];
+			var Models = require('./model');
 
 			// read through the models directory
 			fs.readdirSync(__dirname + '/../models').forEach(function(name){
@@ -48,7 +49,7 @@ var LoadServer = (function() {
 				// add model name to the local models variable
 				models.push(name);
 				// add "instatiated" model to the local ModelClasses variable
-				ModelClasses[name] = instatiate('model', name);
+				ModelClasses[name] = Models[name.capitalize() + 'Model'].getInstance();//instatiate('model', name);
 			});
 
 			// a safety break variable for while loop in case of error
@@ -108,7 +109,7 @@ var LoadServer = (function() {
 		};
 
 		function controllers() {
-			Controllers = require('./controller');
+			var Controllers = require('./controller');
 
 			// read through the controllers directory
 			fs.readdirSync(__dirname + '/../controllers').forEach(function(name){
