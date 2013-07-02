@@ -7,7 +7,8 @@ var http = require('http'),
 
 var LoadServer = (function() {
 
-	var serverInstance; // Private attribute that holds the single instance
+	// Private attribute that holds the single instance
+	var serverInstance;
 
 	function constructor(parent, options) {
 
@@ -102,7 +103,7 @@ var LoadServer = (function() {
 					models.splice(index, 1);
 				};
 
-				// safety first
+				// safety first (while loop protection)
 				safety++;
 			}
 		};

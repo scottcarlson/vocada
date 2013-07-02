@@ -2,7 +2,6 @@ include ../mixins
 extends ../layout
 
 block content
-	script console.log(!{JSON.stringify(locals)});
 	div
 		- if (locals.hasMessages) {
 			div#login-notice-header
@@ -11,8 +10,6 @@ block content
 		div#login-logo
 			a(href="/") vocada
 			em 0.0.1
-			//-p#login-password-recovery
-			//-a(href="user/password-recovery", id="login-password-recovery") recover password
 			h3#create-user-header create new business
 		div(id="login-form-container", class="login-page-containers float-left")
 			mixin createBusinessForm

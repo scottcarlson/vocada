@@ -87,12 +87,6 @@ var UserController = function constructor() {
 				}
 			}})(),
 
-			list: (function() { return {
-				get: function(req, res) {
-					res.send("respond with a resource")
-				}
-			}})(),
-
 			dashboard: (function() { return {
 
 				path: '/dashboard',
@@ -106,14 +100,6 @@ var UserController = function constructor() {
 				}
 			}})(),
 
-			wizard: (function() { return {
-				// may need to move to business controller
-				path: '/wizard',
-				get: function(req, res) {
-
-				}
-			}})(),
-
 			profile: (function() { return {
 
 				path: '/profile',
@@ -124,10 +110,7 @@ var UserController = function constructor() {
 					  	title: 'Vocada | User Profile'
 					 	}
 					)
-				}
-			}})(),
-
-			update: (function() { return {
+				},
 				put: function(req, res) {
 
 				}

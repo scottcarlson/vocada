@@ -16,10 +16,8 @@ block content
 				h1 #{locals.message}
 		- }
 		div#login-logo
-			//-div #{locals.message}
 			a(href="/") vocada
 			em 0.0.1
-			//-p#login-password-recovery
 			a(href="user/password-recovery", id="login-password-recovery") recover password
 		div(id="login-form-container", class="login-page-containers float-left")
 			mixin userLoginForm

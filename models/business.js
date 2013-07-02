@@ -44,7 +44,8 @@ var BusinessModel = (function() {
 
 				return mongoose.model('Business', BusinessSchema);    
 			}
-		}
+			
+		} // end return object
 	} // end constructor
 
 	return {
