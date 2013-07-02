@@ -8,7 +8,8 @@ var mongoose = require('mongoose'),
 
 var BusinessModel = (function() {
 
-	var modelInstance; // Private attribute that holds the single instance
+	// Private attribute that holds the single instance
+	var modelInstance;
 
 	function constructor() { 
 		var schema = {
@@ -44,7 +45,7 @@ var BusinessModel = (function() {
 
 				return mongoose.model('Business', BusinessSchema);    
 			}
-			
+
 		} // end return object
 	} // end constructor
 

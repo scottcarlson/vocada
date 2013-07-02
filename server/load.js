@@ -1,7 +1,7 @@
 // Module dependencies.
 var http = require('http'),
-		db = require('./database'),
 		fs = require('fs'),
+		Database = require('./database').getInstance(),
 		Auth = require('./auth').getInstance(),
 		Model = Model || Object;
 
@@ -20,7 +20,6 @@ var LoadServer = (function() {
 		// private functions
 		function database() {
 			// Connect to database
-			var Database = new db;
 			Database.connect('mongoose');
 		};
 

@@ -9,7 +9,8 @@ var Auth = require('../server/auth').getInstance(),
     
 var UserModel = (function() {
 
-  var modelInstance; // Private attribute that holds the single instance
+  // Private attribute that holds the single instance
+  var modelInstance;
 
   function constructor() {
     var schema = {
@@ -70,7 +71,8 @@ var UserModel = (function() {
 
         return mongoose.model('User', UserSchema);    
       }
-    }
+
+    } // end return object
   } // end constructor
 
   return {
